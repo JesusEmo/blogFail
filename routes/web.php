@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Http\Request;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,6 +25,8 @@ Route::controller(PageController::class)->group(function () {
 
     Route::get('blog/{post:slug}',          'post')->name('post');
 });
+
+Route::resource('posts', PostController::class);
 
 Route::middleware([
     'auth:sanctum',
